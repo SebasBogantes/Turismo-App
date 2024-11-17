@@ -1,70 +1,146 @@
-# Getting Started with Create React App
+# Turismo-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un proyecto MERN (MongoDB, Express.js, React.js y Node.js) con arquitectura MVC diseñado para explorar destinos turísticos en Costa Rica.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Requisitos previos
 
-### `npm start`
+Antes de comenzar, asegúrate de tener los siguientes programas instalados en tu máquina:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Node.js](https://nodejs.org/) (versión 16 o superior recomendada)
+- [npm](https://www.npmjs.com/) (generalmente viene con Node.js)
+- [MongoDB](https://www.mongodb.com/) (puedes usar una base de datos local o una en la nube como [MongoDB Atlas](https://www.mongodb.com/atlas))
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Instrucciones de instalación
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clonar el repositorio
 
-### `npm run build`
+Clona este repositorio en tu máquina local con el siguiente comando:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/SebasBogantes/Turismo-App.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Accede al directorio del proyecto:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd Turismo-App
+```
 
-### `npm run eject`
+### 2. Instalar dependencias
+El proyecto está dividido en dos partes principales: Frontend (client) y Backend (server). Asegúrate de instalar las dependencias para ambas partes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Frontend (client)
+Accede a la carpeta client:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+cd client
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Instala las dependencias necesarias:
+```bash
+npm install
+```
+Instala Bootstrap para los estilos:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install bootstrap
+```
+Esto instalará todas las bibliotecas necesarias, incluyendo:
 
-## Learn More
+- React
+- Bootstrap
+- React Router
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Vuelve a la raíz del proyecto para continuar con la configuración del backend:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd ..
+```
 
-### Code Splitting
+#### Backend (server)
+Accede a la carpeta server desde la raíz del proyecto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd server
+```
+Instala las dependencias necesarias:
 
-### Analyzing the Bundle Size
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Instala Multer para manejar archivos:
 
-### Making a Progressive Web App
+```bash
+npm install multer
+```
+Multer se utiliza para manejar la carga de imágenes en el servidor.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Esto instalará las siguientes bibliotecas principales:
 
-### Advanced Configuration
+- Express
+- Multer (para gestión de archivos)
+- dotenv (para variables de entorno)
+- mongoose (para conexión con MongoDB)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### 3. Configurar variables de entorno
+En la carpeta server, crea un archivo .env para definir las siguientes variables:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+Copiar código
+MONGO_URI=tu_conexion_mongo
+PORT=5000
+JWT_SECRET=tu_secreto_jwt
+``` 
+- MONGO_URI: URL de conexión a tu base de datos MongoDB.
+- PORT: Puerto en el que se ejecutará el servidor (por defecto 5000).
+- JWT_SECRET: Una clave secreta para manejar autenticaciones JWT.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Ejecutar el proyecto
+#### Frontend (client)
+Accede a la carpeta del cliente:
+
+```bash
+cd client
+```
+Ejecuta el siguiente comando para iniciar el servidor del cliente en modo desarrollo:
+
+```bash
+npm start
+```
+Por defecto, el frontend estará disponible en http://localhost:3000.
+
+#### Backend (server)
+Desde la raíz del proyecto, accede a la carpeta del servidor:
+
+```bash
+cd server
+```
+Ejecuta el siguiente comando para iniciar el servidor del backend en modo desarrollo:
+
+```bash
+npm start
+```
+Por defecto, el backend estará disponible en http://localhost:5000.
+
+
+
+### Dependencias utilizadas
+#### Frontend (client)
+- React: Biblioteca principal para construir la interfaz de usuario.
+- Bootstrap: Biblioteca de estilos para diseño responsivo y atractivo.
+- React Router: Manejo de rutas en la aplicación.
+#### Backend (server)
+- Express: Framework para construir el backend.
+- Multer: Manejo de archivos (como imágenes) en el backend.
+- dotenv: Gestión de variables de entorno.
+- mongoose: Conexión y manejo de datos en MongoDB.
+
+
